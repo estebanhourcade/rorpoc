@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem 'stimulus-rails'
 
-gem "font-awesome-sass", "~> 6.0.0"
+gem "font-awesome-sass", "~> 6.5.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
