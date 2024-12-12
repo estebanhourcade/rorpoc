@@ -1,22 +1,27 @@
-<div class="sticky z-50 border-b -mt-2  bg-white/80 border-pink-700/10">
 
-<nav class="flex flex-row items-center mx-auto px-4">
+<header class="sticky top-0 z-50">
+<div class="relative z-50 border-b backdrop-blur-md bg-white/80 border-pink-700/10">
+<nav class="main-container flex items-center justify-between pt-3 pb-2 relative mx-auto px-4">
     <div class="flex flex-1">    
-        <button class="">    
+        <button class="">
             <i class="fas fa-bars hover:bg-sky-700 "></i>
         </button>    
     </div>
     
-    <div class='flex-1 justify-items-center'>
-        <img width="64.52" height="40"  src="https://images.squarespace-cdn.com/content/v1/66d1dd343c0cad3beb7be353/63ba96a1-6a5f-4882-bd3c-29469e05022e/Sempi+logo.png?format=1500w" alt="Italian Trulli">
+    <div class='flex-1 justify-items-center'>        
+        <%= button_to root_path, class: 'justify-items-center', method: :get do %>
+            <img width="64.52" height="40"  src="https://images.squarespace-cdn.com/content/v1/66d1dd343c0cad3beb7be353/63ba96a1-6a5f-4882-bd3c-29469e05022e/Sempi+logo.png?format=1500w" alt="Italian Trulli">
+        <% end %>
     </div>
     <div class='flex-1 justify-items-end'>  
       <!-- <div class='navContainerItem'><%= link_to "Home", root_path %></div>     -->      
       <!-- Additional navigation links here -->
       <div class="flex-1 justify-end">
       <i class="fas fa-user margin-right"></i>
-      <%= link_to "Esteban", @article %>
+      <%= link_to "Esteban", @product %>
       </div>      
     </div>
 </nav>
 </div>
+</header>
+

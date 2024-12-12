@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-pink-100">
   <head>
     <title><%= content_for(:title) || "Sempi Tailwind" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,24 +10,36 @@
 
     <%= yield :head %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"/>`
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"/>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= stylesheet_link_tag "tailwind", "inter-font"%>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="relative z-50 border-b backdrop-blur-md bg-white/80 border-pink-700/10">    
-  <%= render "/layouts/header" %>
-    <main class="main-container px-4 mx-auto">
-      <%= yield %>
+  <body style='flex flex-1'>    
+    <%= render "/layouts/header" %>
+    <main class="flex-1 bg-gradient-to-b from-pink-100 to-yellow-100  ">
+        <div class="overflow-hidden md:max-w-2xl mx-auto">
+        <%= yield %>
+        </div>
+      
     </main>
+    <%= render "/layouts/footer" %>      
   </body>
+  
+
+  
 </html>

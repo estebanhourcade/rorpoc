@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem 'stimulus-rails'
+
 gem "font-awesome-sass", "~> 6.0.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"
@@ -64,3 +66,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "jsbundling-rails", "~> 1.3"
