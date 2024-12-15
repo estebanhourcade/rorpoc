@@ -1,0 +1,115 @@
+<div class="pb-2 sm:pb-1">
+    <div class="max-w-xl mx-auto px-12">
+        <div class="relative">
+            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-900/10 -translate-y-1/2">
+                <div class="h-full bg-indigo-600 transition-all duration-300 ease-in-out" style="width: 0%;"></div>
+            </div>
+
+            <!-- Steps -->
+            <div class="relative flex justify-between">
+                <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center mb-1 border-2 relative z-10
+                        bg-white  border-indigo-600 text-indigo-600">
+                        <i class="fas fa-camera text-sm" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center mb-1 border-2 relative z-10
+                        bg-white border-gray-900/20 text-gray-400">
+                        <i class="fas fa-comment text-sm" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center mb-1 border-2 relative z-10
+                        bg-white border-gray-900/20 text-gray-400">
+                        <i class="fas fa-tasks text-sm" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center mb-1 border-2 relative z-10
+                        bg-white border-gray-900/20 text-gray-400">
+                        <i class="fas fa-check-to-slot text-sm" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="min-h-svh bg-gradient-to-b from-pink-100 to-yellow-100 flex flex-col items-center p-4 pb-16">
+
+
+    <div class="small-container bg-white rounded-xl p-6 mt-8 sm:mt-12 shadow-sm">
+        <h1 class="text-xl sm:text-2xl font-bold text-center mb-4 font-inter ">Add a photo of your item</h1>
+        <p>We will analyse the photo to determine the product details. You'll then answer a few questions to complete the listing.</p>
+
+        <div id="image-upload-form" data-controller="image-upload" data-image-upload-mobile-text-value="Use the button below to select a photo or take one with your camera" data-image-upload-desktop-text-value="Drag and drop an image here, or click to select" data-action="turbo:before-render@document->image-upload#teardown">
+            <form class="space-y-4" enctype="multipart/form-data" data-image-upload-target="form" data-action="submit->image-upload#submitForm" action="/products" accept-charset="UTF-8" method="post" data-gtm-form-interact-id="1"><input type="hidden" name="authenticity_token" value="qr0bWl3p3Z809D4s1reiVHqbE_0p4Yo-CwLdOwygqRq9ouOfJoQPnkK_fhsAOis1QZfH9aM6uAjS-2tqnDph8A" autocomplete="off">
+                <div class="flex flex-col items-center relative">
+                    <div id="image-upload-area" data-image-upload-target="dropZone" data-action="click->image-upload#triggerFileInput dragover->image-upload#dragOver dragleave->image-upload#dragLeave drop->image-upload#drop" class="w-72 h-72 bg-slate-50 border-2 border-dashed border-slate-300 rounded-lg flex flex-col items-center justify-center mb-6 transition duration-300 hover:border-slate-400">
+                        <div id="preview" class="w-full h-full flex flex-col items-center justify-center">
+                            <i id="icon" class="fas fa-images text-4xl text-slate-400" data-image-upload-target="icon" aria-hidden="true"></i>
+                            <p id=" upload-text" data-image-upload-target="uploadText" class="text-slate-400 text-center p-4 ">Select a valid URL for your pic</p>
+                        </div>
+                    </div>
+                    <input name="product[images][]" type="hidden" value="" autocomplete="off"><input multiple="multiple" accept="image/*" data-image-upload-target="fileInput" data-action="change->image-upload#handleFileChange" class="hidden" type="file" name="product[images][]" id="product_images" data-gtm-form-interact-field-id="2">
+                </div>
+
+                <%= form_with model: product do |form| %>
+                <div class="text-sm pb-10">
+                    <%= form.label :photo , class:"form_label" %><br>
+                    <%= form.text_field :photo, class: "text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg  w-full p-2.5", onchange: "alert('hello')" %>
+                    <% product.errors.full_messages_for(:photo).each do |message| %>
+                    <span style="color:red;"><%= message %></span>
+                    <% end %>
+                </div>
+                <% end %>
+                <div class="flex justify-center">
+                    <input type="submit" name="commit" value="Continue" class="bg-black disabled text-white font-bold py-3 px-6 rounded-lg text-xl font-display shadow-md hover:bg-gray-800 transition duration-300 cursor-pointer disabled:opacity-70 disabled:cursor-default" data-image-upload-target="continueButton" data-disable-with="Continue">
+                </div>
+
+            </form>
+            <!-- Loading Overlay -->
+            <div data-image-upload-target="loadingOverlay" class="absolute inset-0 bg-white bg-opacity-85 items-center  justify-center hidden flex-col px-6">
+                <div role="status">
+                    <svg aria-hidden="true" class="w-8 h-8 text-stone-300 animate-spin fill-amber-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"></path>
+                        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"></path>
+                    </svg>
+                </div>
+
+                <div class="text-center pt-2">
+                    <p class="text-gray-700 font-semibold">Please wait while we process your image</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8 text-center">
+        <h2 class="text-gray-700 mb-4 font-medium">Learn more about selling on Sempi</h2>
+        <div class="flex flex-wrap justify-center gap-2 lg:gap-4 text-sm">
+            <a target="_blank" class="flex items-center bg-white text-gray-700 py-2 px-3 sm:px-4 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300" href="https://sempi.ai/what-items-we-accept">
+                <i class="fas fa-box-open mr-2" aria-hidden="true"></i> Items we accept
+            </a> <a target="_blank" class="flex items-center bg-white text-gray-700 py-2 px-3 sm:px-4 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300" href="https://sempi.ai/our-fees">
+                <i class="fas fa-percentage mr-2" aria-hidden="true"></i> Fees &amp; payments
+            </a> <a target="_blank" class="flex items-center bg-white text-gray-700 py-2 px-3 sm:px-4 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300" href="https://sempi.ai/privacy-policy">
+                <i class="fas fa-shield-alt mr-2" aria-hidden="true"></i> Privacy policy
+            </a> <a target="_blank" class="flex items-center bg-white text-gray-700 py-2 px-3 sm:px-4 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300" href="https://sempi.ai/terms-of-use">
+                <i class="fas fa-file-contract mr-2" aria-hidden="true"></i> Terms of use
+            </a>
+        </div>
+    </div>
+
+    <script>
+        //<![CDATA[
+
+        document.addEventListener("turbo:load", function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-968065044/ozq8CLybyMcZEJSAzs0D'
+                });
+            }
+        });
+
+        //]]>
+    </script>
+</div>
