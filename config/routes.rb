@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
+  get "profile/index"
   root "products#index"
 
   resources :products 
 end
 
 Rails.application.routes.draw do
+  get "profile/index"
   get "/dashboard", to: "dashboard#index"
   
 end
 
 
 Rails.application.routes.draw do
+  get "profile/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
