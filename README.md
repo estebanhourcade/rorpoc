@@ -22,6 +22,15 @@ product.save
 product = Product.new(name: "TNMT Mug", description: "A TMNT mug from 1990. “Fresh from the sewer” written on the inside", address: "Rigaer Straße 10, Berlin, Germany", photo: "https://preview.redd.it/my-tmnt-mug-from-1990-fresh-from-the-sewer-written-on-the-v0-jdubfkw5wm1d1.jpg?width=640&crop=smart&auto=webp&s=d3eb0b045fcb372a982fa3d6c24db50657862324", category:"Vintage", price: 50, minimumSale:30)
 product.save
 
+transaction = Transaction.new(type_string:'SALE Ebay', amount:50, status:'processed', date:'12/12/24')
+transaction.save
+
+transaction = Transaction.new(type:'SALE', amount:30, status:'pending', date:'11/12/24')
+transaction.save
+
+transaction = Transaction.new(type:'Sempi comission', amount:-5, status:'processed', date:'1/12/24')
+transaction.save
+
 # start server
 
 .bin/dev
