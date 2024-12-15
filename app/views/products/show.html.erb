@@ -1,29 +1,28 @@
 <ul>
-  
-<li class="bg-white rounded-2xl hover:cursor-pointer" >
 
-    <div class="aspect-square w-full overflow-hidden rounded-t-lg ">
-        <img class="mb-5 object-cover" width=400  src="<%= @product.photo %>" alt="Italian Trulli">
-    </div>
-    <div class="p-3">
-        <p class="text-lg font-bold text-gray-800 mb-1 leading-tight">
-             <%= @product.name %>
-        </p>
-        <p class="text-green-600 text-xl font-semibold">
-             €<%= @product.price %></p>
-        <p class="inline-flex items-center text-yellow-600 text-sm">REVIEW</p>
-        <span class=''>
-            <i class="fa fa-trash-can red"></i>                        
-        </span>
-    </div>
+    <li class="bg-white rounded-2xl hover:cursor-pointer">
 
-</li>
+        <div class="aspect-square w-full overflow-hidden rounded-t-lg ">
+            <img class="mb-5 object-cover" width=400 src="<%= @product.photo %>" alt="Italian Trulli">
+        </div>
+        <div class="p-3">
+            <p class="text-lg font-bold text-gray-800 mb-1 leading-tight">
+                <%= @product.name %>
+            </p>
+            <p class="text-green-600 text-xl font-semibold">
+                €<%= @product.price %></p>
+            <p class="inline-flex items-center text-yellow-600 text-sm">REVIEW</p>
+            <span class=''>
+                <i class="fa fa-trash-can red"></i>
+            </span>
+        </div>
 
-  <li><%= link_to "Edit", edit_product_path(@product) %></li>
-  <li><%= link_to "Destroy", product_path(@product), data: {
+    </li>
+
+    <li><%= link_to "Edit", edit_product_path(@product) %></li>
+    <li><%= link_to "Destroy", product_path(@product), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-                  
-</ul>
 
+</ul>

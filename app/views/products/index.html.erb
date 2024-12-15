@@ -1,20 +1,19 @@
 <div class='mx-auto mt-20'>
-<div class="flex justify-between" style="margin-top:40px">
-    <h1 class="text-3xl font-bold text-gray-900">Your items</h1>
-      <button class="inline-flex align-middle px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-xl p-2 justify-items-end">
-      <i class="fas fa-circle-plus fa-fw text-white mr-2 mt-1"></i>
-      <p class="text-white bold">
-      <%= link_to "Sell another item", new_product_path %></p>
-      </button>      
+    <div class="flex justify-between" style="margin-top:40px">
+        <h1 class="text-3xl font-bold text-gray-900">Your items</h1>
+        <button class="inline-flex align-middle px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-xl p-2 justify-items-end">
+            <i class="fas fa-circle-plus fa-fw text-white mr-2 mt-1"></i>
+            <p class="text-white bold">
+                <%= link_to "Sell another item", new_product_path %></p>
+        </button>
+    </div>
+
+    <h2 style="font-family: 'Anton', 'sans-serif;'" class="font-display text-xl font-display text-gray-900 mb-1">Needs your attention</h2>
+    <p class="text-sm text-gray-600 mb-4 ">These products require your input to move forward.</p>
+
+    <ul class="box-border overflow-scroll grid grid-cols-2 sm:grid-cols-3 gap-6">
+        <% @products.each do |product| %>
+        <%= render "product", product: product %>
+        <% end %>
+    </ul>
 </div>
-
-<h2 style="font-family: 'Anton', 'sans-serif;'" class="font-display text-xl font-display text-gray-900 mb-1">Needs your attention</h2>
-<p class="text-sm text-gray-600 mb-4 ">These products require your input to move forward.</p>
-
-<ul class="box-border overflow-scroll grid grid-cols-2 sm:grid-cols-3 gap-6">
-  <% @products.each do |product| %>    
-    <%= render "product", product: product %>     
-  <% end %>
-</ul>  
-</div>  
-
