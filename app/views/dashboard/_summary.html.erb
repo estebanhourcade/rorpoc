@@ -28,7 +28,7 @@
                                 Drafts
                             </p>
                             <p class="mt-1 text-2xl font-semibold text-gray-900">
-                                0
+                                <%= products.count { | product | product.status == 'Draft' } %>
                             </p>
                         </div>
                         <div>
@@ -36,7 +36,7 @@
                                 In review
                             </p>
                             <p class="mt-1 text-2xl font-semibold text-gray-900">
-                                0
+                                <%= products.count { | product | product.status == 'Review' } %>
                             </p>
                         </div>
                         <div>
