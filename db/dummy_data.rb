@@ -8,3 +8,12 @@ product = Product.new(name: "TNMT Mug", description: "A TMNT mug from 1990. “F
 category:"Vintage", price: 50, minimumSale:30, status:'Draft') 
 product.save
 
+transaction = Transaction.new(type_string:'SALE Ebay', amount:50, status:'processed', date:'12/12/24') 
+transaction.save
+
+transaction = Transaction.new(type_string:'SALE', amount:30, status:'pending', date:'11/12/24') 
+transaction.save
+
+transaction = Transaction.new(type_string:'Sempi comission', amount:-5, status:'processed', date:'1/12/24') 
+transaction.save
+
