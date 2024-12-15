@@ -18,7 +18,7 @@
                 <span class="text-gray-700">Profile details</span>
                 <i class="fas fa-chevron-right ml-auto text-gray-400" aria-hidden="true"></i>
             </a>
-            <a class="flex items-center p-3 rounded-lg bg-white/80 hover:bg-white transition-colors duration-200" href="/wallet">
+            <a class="flex items-center p-3 rounded-lg bg-white/80 hover:bg-white transition-colors duration-200" href="/wallet/index">
                 <i class="fas fa-wallet fa-fw text-indigo-600 mr-3" aria-hidden="true"></i>
                 <span class="text-gray-700">Wallet &amp; transactions</span>
                 <i class="fas fa-chevron-right ml-auto text-gray-400" aria-hidden="true"></i>
@@ -35,6 +35,6 @@
 
     <%= render "summary", products: @products %>
 
-    <%= render "transactions"  %>
+    <%= render "transactions", title: "Recent transactions" %>
 
 </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "wallet/index"
   get "profile/index"
   root "products#index"
 
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
+  get "wallet/index"
   get "profile/index"
   get "/dashboard", to: "dashboard#index"
   
@@ -13,6 +15,7 @@ end
 
 
 Rails.application.routes.draw do
+  get "wallet/index"
   get "profile/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
